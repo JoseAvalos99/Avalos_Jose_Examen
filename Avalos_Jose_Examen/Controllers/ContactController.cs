@@ -2,58 +2,51 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Avalos_Jose_Examen.Resources;
 using Avalos_Jose_Examen.Service.Service;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Avalos_Jose_Examen.Controllers
 {
     [Produces("application/json")]
-    [Route("api/User")]
-    public class UserController : Controller
+    [Route("api/Contact")]
+    public class ContactController : Controller
     {
-		private readonly IUserService _userService;
-		public UserController(IUserService userService)
-		{
-			this._userService = userService;
-		}
 
-        // GET: api/User
+		private readonly IContactService _contactService;
+		public ContactController(IContactService contactService)
+		{
+			this._contactService = contactService;
+		}
+		// GET: api/Contact
         [HttpGet]
         public IActionResult Get()
         {
 			try
 			{
-				return Ok(_userService.GetUsers());
+				return Ok(_contactService.GetContacts());
 			}
 			catch (Exception)
 			{
-				return BadRequest(Messages.UsersGetError);
+				return BadRequest(Messages.ContactsGetError);
 			}
         }
 
-        // GET: api/User/5
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        // GET: api/Contact/5
+        [HttpGet("{id}", Name = "Get")]
+        public string Get(int id)
         {
-			try
-			{
-				return Ok(_userService.GetUsers());
-			}
-			catch (Exception)
-			{
-				return BadRequest(Messages.UsersGetError);
-			}
-		}
+            return "value";
+        }
         
-        // POST: api/User
+        // POST: api/Contact
         [HttpPost]
         public void Post([FromBody]string value)
         {
         }
         
-        // PUT: api/User/5
+        // PUT: api/Contact/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {

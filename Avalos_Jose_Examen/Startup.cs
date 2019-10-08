@@ -26,6 +26,7 @@ namespace Avalos_Jose_Examen
 		{
 			services.AddMvc();
 			services.AddTransient<IUserService, UserService>();
+			services.AddTransient<IContactService, ContactService>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

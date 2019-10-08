@@ -61,6 +61,15 @@ namespace Avalos_Jose_Examen.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Ha ocurrido un error al consultar los contactos.
+        /// </summary>
+        internal static string ContactsGetError {
+            get {
+                return ResourceManager.GetString("ContactsGetError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Ha ocurrido un error al consultar los usuarios.
         /// </summary>
         internal static string UsersGetError {
