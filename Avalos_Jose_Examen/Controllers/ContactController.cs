@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Avalos_Jose_Examen.Model.Model;
 using Avalos_Jose_Examen.Resources;
 using Avalos_Jose_Examen.Service.Service;
 using Microsoft.AspNetCore.Http;
@@ -35,21 +36,48 @@ namespace Avalos_Jose_Examen.Controllers
 
         // GET: api/Contact/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+			try
+			{
+				return Ok(_contactService.GetContactById(id));
+			}
+			catch (Exception)
+			{
+				return BadRequest(Messages.ContactsGetError);
+			}
         }
         
         // POST: api/Contact
         [HttpPost]
-        public void Post([FromBody]string value)
+        public ActionResult Post([FromBody] Contact contactValue)
         {
+			try
+			{
+				if (!ModelState.IsValid)
+					return BadRequest(Messages.ModelError);
+				return Ok(_contactService.AddContact(contactValue));
+			}
+			catch (Exception)
+			{
+				return BadRequest(Messages.ContactsGetError);
+			}
         }
         
         // PUT: api/Contact/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public IActionResult Put(int id, [FromBody] Contact contactValue)
         {
+			try
+			{
+				if (!ModelState.IsValid)
+					return BadRequest(Messages.ModelError);
+				return Ok(_contactService.EditContact(id, contactValue));
+			}
+			catch (Exception)
+			{
+				return BadRequest(Messages.ContactsGetError);
+			}
         }
         
         // DELETE: api/ApiWithActions/5

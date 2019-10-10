@@ -70,6 +70,15 @@ namespace Avalos_Jose_Examen.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a El objeto tiene el modelo erroneo.
+        /// </summary>
+        internal static string ModelError {
+            get {
+                return ResourceManager.GetString("ModelError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Ha ocurrido un error al consultar los usuarios.
         /// </summary>
         internal static string UsersGetError {

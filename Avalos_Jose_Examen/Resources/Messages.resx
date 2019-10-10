@@ -121,6 +121,10 @@
     <value>Ha ocurrido un error al consultar los contactos</value>
     <comment>Error para el controller de contactos para el metodo get</comment>
   </data>
+  <data name="ModelError" xml:space="preserve">
+    <value>El objeto tiene el modelo erroneo</value>
+    <comment>Error para validar el estado de los objetos</comment>
+  </data>
   <data name="UsersGetError" xml:space="preserve">
     <value>Ha ocurrido un error al consultar los usuarios</value>
     <comment>Error para el controller de usuario para el metodo get</comment>
