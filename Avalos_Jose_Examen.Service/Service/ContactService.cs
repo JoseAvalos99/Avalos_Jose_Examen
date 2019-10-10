@@ -8,6 +8,7 @@ namespace Avalos_Jose_Examen.Service.Service
 {
 	public interface IContactService
 	{
+		IEnumerable<Contact> GetAll();
 		List<Contact> GetContacts();
 		Contact GetContactById(int Id);
 		List<Contact> AddContact(Contact contact);
@@ -29,7 +30,11 @@ namespace Avalos_Jose_Examen.Service.Service
 					Name= "Jess",
 					Mesagge= "dsadsadsadsadsadsa"
 				}
-			};
+		};
+		public IEnumerable<Contact> GetAll()
+		{
+			return null;
+		}
 		public List<Contact> GetContacts()
 		{
 			return contacts;
