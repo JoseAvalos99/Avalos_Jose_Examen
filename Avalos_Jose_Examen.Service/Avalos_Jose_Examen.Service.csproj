@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Avalos_Jose_Examen.Model\Avalos_Jose_Examen.Model.csproj" />
+    <ProjectReference Include="..\Avalos_Jose_Examen.Repository\Avalos_Jose_Examen.Repository.csproj" />
   </ItemGroup>
 
 </Project>
