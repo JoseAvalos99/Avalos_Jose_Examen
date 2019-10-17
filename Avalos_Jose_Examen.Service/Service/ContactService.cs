@@ -8,11 +8,11 @@ namespace Avalos_Jose_Examen.Service.Service
 {
 	public interface IContactService
 	{
-		IEnumerable<Contact> GetAll();
-		List<Contact> GetContacts();
+		
+		List<Contact> GetAll();
 		Contact GetContactById(int Id);
-		List<Contact> AddContact(Contact contact);
-		List<Contact> EditContact(int Id, Contact contact);
+		List<Contact> Insert(Contact contact);
+		List<Contact> Update(int Id, Contact contact);
 	}
 	public class ContactService : IContactService
 	{
@@ -31,11 +31,11 @@ namespace Avalos_Jose_Examen.Service.Service
 					Mesagge= "dsadsadsadsadsadsa"
 				}
 		};
-		public IEnumerable<Contact> GetAll()
-		{
-			return null;
-		}
-		public List<Contact> GetContacts()
+		//public IEnumerable<Contact> GetAll()
+		//{
+		//	return null;
+		//}
+		public List<Contact> GetAll()
 		{
 			return contacts;
 		}
@@ -45,13 +45,13 @@ namespace Avalos_Jose_Examen.Service.Service
 			return contactFiltered;
 		}
 
-		public List<Contact> AddContact(Contact contact)
+		public List<Contact> Insert(Contact contact)
 		{
 			contacts.Add(contact);
 			return contacts;
 		}
 
-		public List<Contact> EditContact(int Id,Contact contact)
+		public List<Contact> Update(int Id,Contact contact)
 		{
 			foreach(Contact c in contacts.FindAll(c => c.Id== Id))
 			{

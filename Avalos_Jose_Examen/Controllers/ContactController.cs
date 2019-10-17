@@ -26,7 +26,7 @@ namespace Avalos_Jose_Examen.Controllers
         {
 			try
 			{
-				return Ok(_contactService.GetContacts());
+				return Ok(_contactService.GetAll());
 			}
 			catch (Exception)
 			{
@@ -56,7 +56,7 @@ namespace Avalos_Jose_Examen.Controllers
 			{
 				if (!ModelState.IsValid)
 					return BadRequest(Messages.ModelError);
-				return Ok(_contactService.AddContact(contactValue));
+				return Ok(_contactService.Insert(contactValue));
 			}
 			catch (Exception)
 			{
@@ -72,7 +72,7 @@ namespace Avalos_Jose_Examen.Controllers
 			{
 				if (!ModelState.IsValid)
 					return BadRequest(Messages.ModelError);
-				return Ok(_contactService.EditContact(id, contactValue));
+				return Ok(_contactService.Update(id, contactValue));
 			}
 			catch (Exception)
 			{
