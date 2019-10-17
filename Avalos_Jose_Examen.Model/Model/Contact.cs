@@ -5,8 +5,10 @@ using System.Text;
 
 namespace Avalos_Jose_Examen.Model.Model
 {
-	public class Contact : Entity
+	public class Contact 
 	{
+		[Key]
+		public int Id { get; set; }
 		[Required]
 		public string Name { get; set; }
 		[Required]
