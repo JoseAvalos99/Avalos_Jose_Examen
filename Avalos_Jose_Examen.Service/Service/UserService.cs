@@ -19,7 +19,12 @@ namespace Avalos_Jose_Examen.Service.Service
 				new User()
 				{
 					Id = 1,
-					Name = "Joss"
+					Name = "Joss",
+					LastName = "Leal",
+					NickName = "Oreos",
+					Gender = Model.Enums.GenderEnum.NonBinary,
+					PhoneNumber = "6441221122",
+					YearsOld = 20
 				}
 			};
 		}
