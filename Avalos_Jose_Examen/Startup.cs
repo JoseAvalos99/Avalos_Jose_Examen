@@ -21,12 +21,14 @@ namespace Avalos_Jose_Examen
 
 		public IConfiguration Configuration { get; }
 
+
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddMvc();
 			services.AddTransient<IUserService, UserService>();
 			services.AddTransient<IContactService, ContactService>();
+			
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,7 +38,7 @@ namespace Avalos_Jose_Examen
 			{
 				app.UseDeveloperExceptionPage();
 			}
-
+			app.UseCors(options => options.WithOrigins("http://localhost:4200/").AllowAnyOrigin());
 			app.UseMvc();
 		}
 	}
