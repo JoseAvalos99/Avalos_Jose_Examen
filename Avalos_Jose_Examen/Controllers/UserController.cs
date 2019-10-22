@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Avalos_Jose_Examen.Resources;
 using Avalos_Jose_Examen.Service.Service;
+using Avalos_Jose_Examen.Model.Model;
 
 namespace Avalos_Jose_Examen.Controllers
 {
@@ -49,8 +50,17 @@ namespace Avalos_Jose_Examen.Controllers
         
         // POST: api/User
         [HttpPost]
-        public void Post([FromBody]string value)
+        public IActionResult Post([FromBody] User userValue)
         {
+			try
+			{
+				_userService.AddUser(userValue);
+				return Ok(200);
+			}
+			catch (Exception)
+			{
+				return Ok(Messages.ModelError);
+			}
         }
         
         // PUT: api/User/5

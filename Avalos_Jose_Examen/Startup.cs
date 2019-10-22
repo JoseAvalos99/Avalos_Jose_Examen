@@ -28,7 +28,6 @@ namespace Avalos_Jose_Examen
 			services.AddMvc();
 			services.AddTransient<IUserService, UserService>();
 			services.AddTransient<IContactService, ContactService>();
-			
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,7 +37,11 @@ namespace Avalos_Jose_Examen
 			{
 				app.UseDeveloperExceptionPage();
 			}
-			app.UseCors(options => options.WithOrigins("http://localhost:4200/").AllowAnyOrigin());
+			app.UseCors(options => 
+				options.WithOrigins("http://localhost:4200/").AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials()
+				);
+			//app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials());
+
 			app.UseMvc();
 		}
 	}
