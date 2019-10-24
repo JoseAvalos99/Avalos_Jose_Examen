@@ -1,4 +1,5 @@
 ﻿using Avalos_Jose_Examen.Model.Model;
+using Avalos_Jose_Examen.Repository.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +15,11 @@ namespace Avalos_Jose_Examen.Service.Service
 
 	public class UserService : IUserService
 	{
-		
+		private readonly IUserRepository _userRepository;
+		public UserService(IUserRepository userRepository)
+		{
+			_userRepository = userRepository;
+		}
 		public List<User> GetUsers()
 		{
 			return new List<User>()
@@ -53,7 +58,7 @@ namespace Avalos_Jose_Examen.Service.Service
 		}
 		public void AddUser(User user)
 		{
-			
+			_userRepository.Insert(user);
 		}
 	}
 }

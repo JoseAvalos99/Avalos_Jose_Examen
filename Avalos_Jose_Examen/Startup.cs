@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Avalos_Jose_Examen.Repository.Repositories;
 using Avalos_Jose_Examen.Service.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,6 +29,7 @@ namespace Avalos_Jose_Examen
 			services.AddMvc();
 			services.AddTransient<IUserService, UserService>();
 			services.AddTransient<IContactService, ContactService>();
+			services.AddTransient<IUserRepository, UserRepository>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
