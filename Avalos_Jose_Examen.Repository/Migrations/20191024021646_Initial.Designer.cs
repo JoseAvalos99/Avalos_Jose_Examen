@@ -12,7 +12,7 @@ using System;
 namespace Avalos_Jose_Examen.Repository.Migrations
 {
     [DbContext(typeof(DataDbContext))]
-    [Migration("20191024013404_Initial")]
+    [Migration("20191024021646_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -57,8 +57,7 @@ namespace Avalos_Jose_Examen.Repository.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("Gender")
-                        .HasMaxLength(10);
+                    b.Property<int?>("Gender");
 
                     b.Property<string>("LastName")
                         .IsRequired()

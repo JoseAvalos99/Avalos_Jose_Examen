@@ -44,9 +44,7 @@ namespace Avalos_Jose_Examen.Repository.Repositories
 			catch (Exception e)
 			{
 				return 0;
-				
 			}
-			//throw new NotImplementedException();
 		}
 	}
 }
