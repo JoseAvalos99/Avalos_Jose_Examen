@@ -10,11 +10,11 @@ namespace Avalos_Jose_Examen.Repository.Data
 	{
 		public DataDbContext()
 		{
-
+			
 		}
 		public DataDbContext(DbContextOptions options) : base(options)
 		{
-
+			
 		}
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
@@ -22,6 +22,7 @@ namespace Avalos_Jose_Examen.Repository.Data
 			{
 				optionsBuilder.UseSqlServer("user id=sa; password=uts; server=.; database= APIWeb;");
 			}
+			
 		}
 		public virtual DbSet<Contact> Contact { get; set; }
 		public virtual DbSet<User> User { get; set; }

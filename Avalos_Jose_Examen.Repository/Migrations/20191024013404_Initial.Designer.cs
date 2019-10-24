@@ -12,8 +12,8 @@ using System;
 namespace Avalos_Jose_Examen.Repository.Migrations
 {
     [DbContext(typeof(DataDbContext))]
-    [Migration("20191017223128_initial")]
-    partial class initial
+    [Migration("20191024013404_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,7 +30,8 @@ namespace Avalos_Jose_Examen.Repository.Migrations
                     b.Property<DateTime>("CreateDate");
 
                     b.Property<string>("Email")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(100);
 
                     b.Property<string>("Mesagge")
                         .IsRequired();
@@ -39,10 +40,12 @@ namespace Avalos_Jose_Examen.Repository.Migrations
                         .IsRequired();
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(20);
 
                     b.Property<string>("Subject")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(100);
 
                     b.HasKey("Id");
 
@@ -54,17 +57,25 @@ namespace Avalos_Jose_Examen.Repository.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Gender");
+                    b.Property<int?>("Gender")
+                        .HasMaxLength(10);
 
-                    b.Property<string>("LastName");
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(200);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100);
 
-                    b.Property<string>("NickName");
+                    b.Property<string>("NickName")
+                        .IsRequired()
+                        .HasMaxLength(20);
 
-                    b.Property<string>("PhoneNumber");
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired();
 
-                    b.Property<int>("YearsOld");
+                    b.Property<int?>("YearsOld");
 
                     b.HasKey("Id");
 

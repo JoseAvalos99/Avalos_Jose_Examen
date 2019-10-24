@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Avalos_Jose_Examen.Repository.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,11 +16,11 @@ namespace Avalos_Jose_Examen.Repository.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CreateDate = table.Column<DateTime>(nullable: false),
-                    Email = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(maxLength: 100, nullable: false),
                     Mesagge = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: false),
-                    PhoneNumber = table.Column<string>(nullable: false),
-                    Subject = table.Column<string>(nullable: false)
+                    PhoneNumber = table.Column<string>(maxLength: 20, nullable: false),
+                    Subject = table.Column<string>(maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -33,12 +33,12 @@ namespace Avalos_Jose_Examen.Repository.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Gender = table.Column<int>(nullable: false),
-                    LastName = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true),
-                    NickName = table.Column<string>(nullable: true),
-                    PhoneNumber = table.Column<string>(nullable: true),
-                    YearsOld = table.Column<int>(nullable: false)
+                    Gender = table.Column<int>(maxLength: 10, nullable: true),
+                    LastName = table.Column<string>(maxLength: 200, nullable: false),
+                    Name = table.Column<string>(maxLength: 100, nullable: false),
+                    NickName = table.Column<string>(maxLength: 20, nullable: false),
+                    PhoneNumber = table.Column<string>(nullable: false),
+                    YearsOld = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {

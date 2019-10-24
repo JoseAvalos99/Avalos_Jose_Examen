@@ -13,12 +13,15 @@ namespace Avalos_Jose_Examen.Model.Model
 		public string Name { get; set; }
 		[Required]
 		[DataType(DataType.EmailAddress)]
+		[MaxLength(100)]
 		public string Email { get; set; }
 		[Required]
 		public string Mesagge { get; set; }
 		[Required]
+		[MaxLength(100)]
 		public string Subject { get; set; }
 		[Required]
+		[MaxLength(20)]
 		public string PhoneNumber { get; set; }
 		[Required]
 		[DataType(DataType.Date)]
