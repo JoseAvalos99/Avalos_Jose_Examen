@@ -40,7 +40,7 @@ namespace Avalos_Jose_Examen.Controllers
         {
 			try
 			{
-				return Ok(_userService.GetUsers());
+				return Ok(_userService.Get(id).Result);
 			}
 			catch (Exception)
 			{
@@ -67,12 +67,21 @@ namespace Avalos_Jose_Examen.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
+
         }
         
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+			try
+			{
+				return Ok(_userService.Delete(id));
+			}
+			catch (Exception)
+			{
+				return BadRequest();
+			}
         }
     }
 }

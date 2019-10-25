@@ -3,13 +3,17 @@ using Avalos_Jose_Examen.Repository.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Avalos_Jose_Examen.Service.Service
 {
 	public interface  IUserService
 	{
-		List<User> GetUsers();
+		IEnumerable<User> GetUsers();
+		Task<User> Get(int id);
 		void AddUser(User user);
+		int Delete(int id);
+		
 		
 	}
 
@@ -20,45 +24,23 @@ namespace Avalos_Jose_Examen.Service.Service
 		{
 			_userRepository = userRepository;
 		}
-		public List<User> GetUsers()
+		public IEnumerable<User> GetUsers()
 		{
-			return new List<User>()
-			{
-				new User()
-				{
-					Id = 1,
-					Name = "Oreos",
-					LastName = "Leal",
-					NickName = "Oreos",
-					Gender = Model.Enums.GenderEnum.NonBinary,
-					PhoneNumber = "6441221122",
-					YearsOld = 20
-				},
-				new User()
-				{
-					Id = 2,
-					Name = "Mecury",
-					LastName = "Sama",
-					NickName = "Dark Flame Master",
-					Gender = Model.Enums.GenderEnum.Male,
-					PhoneNumber = "6441221111",
-					YearsOld = 21
-				},
-				new User()
-				{
-					Id = 3,
-					Name = "Jotaro",
-					LastName = "Kujo",
-					NickName = "Star Platinum",
-					Gender = Model.Enums.GenderEnum.Male,
-					PhoneNumber = "6441221133",
-					YearsOld = 17
-				}
-			};
+			return _userRepository.GetAll();
 		}
 		public void AddUser(User user)
 		{
 			_userRepository.Insert(user);
+		}
+
+		public Task<User> Get(int id)
+		{
+			return _userRepository.Get(id);
+		}
+
+		public int Delete(int id)
+		{
+			return _userRepository.Delete(id);
 		}
 	}
 }
