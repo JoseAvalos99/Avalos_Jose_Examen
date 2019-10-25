@@ -14,7 +14,7 @@ namespace Avalos_Jose_Examen.Repository.Repositories
 		Task<User> Get(int Id);
 		int Insert(User user);
 		int Delete(int id);
-		Task<User> Update(User user, int Id);
+		Task<User> Update(User user);
 	}
 	public class UserRepository : IUserRepository
 	{
@@ -65,12 +65,13 @@ namespace Avalos_Jose_Examen.Repository.Repositories
 		{
 			try
 			{
-				
+				_db.Entry(user).State = EntityState.Modified;
+				_db.SaveChanges();
+				return _db.User.FirstOrDefaultAsync(x => x.Id == user.Id);
 			}
 			catch (Exception)
 			{
-
-				throw;
+				return null;
 			}
 			
 		}

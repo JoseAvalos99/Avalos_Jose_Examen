@@ -40,6 +40,7 @@ namespace Avalos_Jose_Examen.Controllers
         {
 			try
 			{
+				
 				return Ok(_userService.Get(id).Result);
 			}
 			catch (Exception)
@@ -52,6 +53,9 @@ namespace Avalos_Jose_Examen.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] User userValue)
         {
+			//userValue.Id = 0;
+			if(!ModelState.IsValid)
+				return Ok(Messages.ModelError);
 			try
 			{
 				_userService.AddUser(userValue);
@@ -65,9 +69,20 @@ namespace Avalos_Jose_Examen.Controllers
         
         // PUT: api/User/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public IActionResult Put(int id, [FromBody]User userValue)
         {
-
+			if (!ModelState.IsValid)
+				return Ok(Messages.ModelError);
+			try
+			{
+				if (id == userValue.Id)
+					return Ok(_userService.UpdateUser(userValue));
+				return null;
+			}
+			catch (Exception)
+			{
+				return BadRequest();
+			}
         }
         
         // DELETE: api/ApiWithActions/5

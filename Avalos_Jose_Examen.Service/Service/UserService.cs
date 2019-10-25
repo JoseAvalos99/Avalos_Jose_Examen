@@ -12,6 +12,7 @@ namespace Avalos_Jose_Examen.Service.Service
 		IEnumerable<User> GetUsers();
 		Task<User> Get(int id);
 		void AddUser(User user);
+		Task<User> UpdateUser(User user);
 		int Delete(int id);
 		
 		
@@ -41,6 +42,17 @@ namespace Avalos_Jose_Examen.Service.Service
 		public int Delete(int id)
 		{
 			return _userRepository.Delete(id);
+		}
+		public Task<User> UpdateUser(User user)
+		{
+			try
+			{
+				return _userRepository.Update(user);
+			}
+			catch (Exception)
+			{
+				return null;
+			}
 		}
 	}
 }
