@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Avalos_Jose_Examen.Repository.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -55,7 +55,7 @@ namespace Avalos_Jose_Examen.Controllers
         {
 			//userValue.Id = 0;
 			if(!ModelState.IsValid)
-				return Ok(Messages.ModelError);
+				return BadRequest(Messages.ModelError);
 			try
 			{
 				_userService.AddUser(userValue);
@@ -63,7 +63,7 @@ namespace Avalos_Jose_Examen.Controllers
 			}
 			catch (Exception)
 			{
-				return Ok(Messages.ModelError);
+				return BadRequest(Messages.ModelError);
 			}
         }
         
@@ -72,7 +72,7 @@ namespace Avalos_Jose_Examen.Controllers
         public IActionResult Put(int id, [FromBody]User userValue)
         {
 			if (!ModelState.IsValid)
-				return Ok(Messages.ModelError);
+				return BadRequest(Messages.ModelError);
 			try
 			{
 				if (id == userValue.Id)

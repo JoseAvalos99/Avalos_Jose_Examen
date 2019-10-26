@@ -49,6 +49,7 @@ namespace Avalos_Jose_Examen.Repository.Repositories
 
 		public int Insert(User user)
 		{
+            user.Id = 0;
 			try
 			{
 				_db.Add(user);
@@ -69,7 +70,7 @@ namespace Avalos_Jose_Examen.Repository.Repositories
 				_db.SaveChanges();
 				return _db.User.FirstOrDefaultAsync(x => x.Id == user.Id);
 			}
-			catch (Exception)
+			catch (Exception e)
 			{
 				return null;
 			}

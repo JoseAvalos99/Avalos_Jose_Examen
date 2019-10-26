@@ -12,8 +12,8 @@ using System;
 namespace Avalos_Jose_Examen.Repository.Migrations
 {
     [DbContext(typeof(DataDbContext))]
-    [Migration("20191024021646_Initial")]
-    partial class Initial
+    [Migration("20191026064115_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
