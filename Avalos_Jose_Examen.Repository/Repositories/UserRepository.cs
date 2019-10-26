@@ -44,8 +44,8 @@ namespace Avalos_Jose_Examen.Repository.Repositories
 
 		public Task<User> Get(int Id)
 		{
-			return _db.User.FirstOrDefaultAsync(x => x.Id == Id);
-		}
+            return _db.User.FirstOrDefaultAsync(x => x.Id == Id);
+        }
 
 		public int Insert(User user)
 		{

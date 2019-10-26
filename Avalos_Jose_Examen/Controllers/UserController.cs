@@ -40,7 +40,8 @@ namespace Avalos_Jose_Examen.Controllers
         {
 			try
 			{
-				
+                if (_userService.Get(id).Result == null)
+                    return BadRequest(Messages.UsersGetError);
 				return Ok(_userService.Get(id).Result);
 			}
 			catch (Exception)
@@ -77,7 +78,7 @@ namespace Avalos_Jose_Examen.Controllers
 			{
 				if (id == userValue.Id)
 					return Ok(_userService.UpdateUser(userValue));
-				return null;
+				return BadRequest();
 			}
 			catch (Exception)
 			{

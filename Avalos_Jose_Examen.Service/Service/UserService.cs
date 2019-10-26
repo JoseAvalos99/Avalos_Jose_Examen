@@ -36,8 +36,8 @@ namespace Avalos_Jose_Examen.Service.Service
 
 		public Task<User> Get(int id)
 		{
-			return _userRepository.Get(id);
-		}
+            return _userRepository.Get(id);
+        }
 
 		public int Delete(int id)
 		{
