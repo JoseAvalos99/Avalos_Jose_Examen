@@ -21,7 +21,7 @@ namespace Avalos_Jose_Examen.Repository.Data
 			if (!optionsBuilder.IsConfigured)
 			{
                 //optionsBuilder.UseSqlServer("user id=sa; password=uts; server=.; database= APIWeb;");
-                optionsBuilder.UseSqlServer("user id=SA;password=fibonacci987;server=DESKTOP-4K1JOAD\\SQLEXPRESS; database=APIWeb");
+                optionsBuilder.UseSqlServer("user id=sa;password=fibonacci987;server=DESKTOP-4K1JOAD; database=APIWeb");
 			}
 			
 		}
