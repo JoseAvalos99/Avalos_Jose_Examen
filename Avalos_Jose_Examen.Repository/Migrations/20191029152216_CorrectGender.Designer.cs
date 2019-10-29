@@ -11,9 +11,10 @@ using System;
 namespace Avalos_Jose_Examen.Repository.Migrations
 {
     [DbContext(typeof(DataDbContext))]
-    partial class DataDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191029152216_CorrectGender")]
+    partial class CorrectGender
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,23 +56,15 @@ namespace Avalos_Jose_Examen.Repository.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Gender")
-                        .HasMaxLength(10);
+                    b.Property<string>("Gender");
 
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(200);
+                    b.Property<string>("LastName");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100);
+                    b.Property<string>("Name");
 
-                    b.Property<string>("NickName")
-                        .IsRequired()
-                        .HasMaxLength(20);
+                    b.Property<string>("NickName");
 
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired();
+                    b.Property<string>("PhoneNumber");
 
                     b.Property<int?>("YearsOld");
 

@@ -18,8 +18,8 @@ namespace Avalos_Jose_Examen.Model.Model
 		public string NickName { get; set; }
 		[Range(18,99)]
 		public int? YearsOld { get; set; }
-		//[MaxLength(10)]
-		public GenderEnum? Gender { get; set; }
+		[MaxLength(10)]
+		public string Gender { get; set; }
 		[Required]
 		public string PhoneNumber { get; set; }
 	}
