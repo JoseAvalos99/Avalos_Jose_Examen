@@ -33,7 +33,7 @@ namespace Avalos_Jose_Examen.Repository.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Gender = table.Column<int>(nullable: true),
+                    Gender = table.Column<string>(maxLength: 10, nullable: true),
                     LastName = table.Column<string>(maxLength: 200, nullable: false),
                     Name = table.Column<string>(maxLength: 100, nullable: false),
                     NickName = table.Column<string>(maxLength: 20, nullable: false),
